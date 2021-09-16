@@ -8,6 +8,18 @@
 <h1><?php echo "Learning PHP from NINJA" ?></h1>
 
 
+<!-- how to include the other php file--> 
+<?php
+    //include('functions.php');
+
+    // require('functions.php')
+
+    // if the file didn't exist require wouldn't run the rest of the code but the inlude run the remaining code
+
+  //  require_once('connection_uing_PDO.php');
+
+?>
+
 <div> 
     <?php
 
@@ -77,7 +89,7 @@
 
 // IndexedArrays
 
-$studentNames =array('Don','MAK','Been','Mickel','Hassy');
+// $studentNames =array('Don','MAK','Been','Mickel','Hassy');
 
 // array_push($studentNames, 'David');
 // printing the values of array
@@ -153,13 +165,28 @@ $studentNames =array('Don','MAK','Been','Mickel','Hassy');
 
 
 
+// boolean and comaprisons operators 
 
 //    echo 5 < 10;
     //echo 5 >10 ;
-    // 5 == 10  // loose comparison
+    // echo 10 == 10  // loose comparison
     //  5 != 10;
 
-     echo 'abc' > 'eass';
+     //echo 'abc' > 'eass';
+
+    //  echo 5 === '5'; // strict comparison means check out the left and right side of the data datatypes then compare
+     
+// function say_helo1($name ){
+//     echo "hello world $name";
+// }
+
+// say_helo1('Mike');
+
+
+
+
+
+
 
 ?>
 
