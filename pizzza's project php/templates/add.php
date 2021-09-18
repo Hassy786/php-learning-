@@ -30,12 +30,12 @@
     // validate the emails
     
     if(empty($_POST['email'])){
-        $errors['email'] = 'A Email is required <br />';
+        $errors['email'] = 'an Email is required <br />';
     }
     else{ 
         $email = $_POST['email'];
         if(!filter_var( $email, FILTER_VALIDATE_EMAIL)){
-            $errors['email'] =  "an email must be valid email address like helloo@gmail.com";
+        $errors['email'] =  "an email must be valid email address like helloo@gmail.com";
         }
     }
 
@@ -47,7 +47,7 @@
     else{
         $title = $_POST['title'];
         if(!preg_match('/^[a-zA-Z\s]+$/',$title)){
-            $errors['title'] =  "Title must be the letter and spaces";
+        $errors['title'] =  "Title must be the letter and spaces";
         }
     }
     // validate the ingredients
@@ -56,14 +56,11 @@
     }else{
         $ingredients = $_POST['ingredients'];
         if(!preg_match('/^[a-zA-Z\s]+$/',$ingredients)){
-            $errors['ingredients'] = 'ingredients must be the comma separated';
+        $errors['ingredients'] = 'ingredients must be the comma separated';
         }
     }
 
-
-
 }
-
 
 
 ?>
@@ -72,12 +69,7 @@
 <head>
 
 <link rel="stylesheet" href="index.css">
-
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-
-    
+  
     <!-- each and everything is on the single page by using the include --> 
     <?php include('header.php'); ?>
 
@@ -87,26 +79,24 @@
         <form class="white"  action="add.php" method= "POST"> <!-- GET request from the URL --> 
 
         <label"> Your Email</label>
-            <input type="text" name="email" value="<?php echo $email ?>">
-            <div class="red-text"><?php echo $errors['email']; ?></div>
+        <input type="text" name="email" value="<?php echo $email ?>">
+        <div class="red-text"><?php echo $errors['email']; ?></div>
 
-            <label"> Pizzza Title</label>
-            <input type="text" name="title"  value="<?php echo $title ?>">
-            <div class="red-text"><?php echo $errors['title']; ?></div>
-
-
-            <label"> Ingredients(comma separated)</label>
-            <input type="text" name="ingredients"  value="<?php echo $ingredients ?>">
-            <div class="red-text"><?php echo $errors['ingredients']; ?></div>
+        <label"> Pizzza Title</label>
+        <input type="text" name="title"  value="<?php echo $title ?>">
+        <div class="red-text"><?php echo $errors['title']; ?></div>
 
 
-            <div class="center">
-            <input type="submit" name="submit" value= "submit" class="btn brand z-depth-0">
-            </div>
-        </form>   
+        <label"> Ingredients(comma separated)</label>
+        <input type="text" name="ingredients"  value="<?php echo $ingredients ?>">
+        <div class="red-text"><?php echo $errors['ingredients']; ?></div>
+
+
+        <div class="center">
+        <input type="submit" name="submit" value= "submit" class="btn brand z-depth-0">
+         </div>
+    </form>   
 </section>
     <?php include('footer.php'); ?>
     
-
-
 </html>
