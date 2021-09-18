@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-
-    <!-- each and everything is on the single page by using the include --> 
-    <?php include('templates/header.php'); ?>
-    <?php include('templates/footer.php'); ?>
+    <!-- connect the Database using mysqli -->
     
+        <?php
+        
+        $conn =mysqli_connect('localhost', 'hassaan' , '5588', 'pizzas');
+
+        // check connection
+        if(!$conn){
+             echo 'Connection error : ' .mysqli_connect_error();
+
+        }
+
+        // how i getting the data from the DB
+
+        // query from the pizza database 
+        $sql = ' SELECT title,	ingredients, id FROM  pizzzzas ';
+
+        // make query and getting a result 
+        $result = mysqli_query($conn, $sql);
+        
+        // fetch the rows in the array 
+        $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        print_r($pizzas);
+
+        ?>
+   
+    <!-- shows the header -->
+    <?php include('templates/header.php'); ?>
+   
+    <!-- shows the footer -->
+    <?php include('templates/footer.php'); ?>
+   
+
+
 
 </html>
