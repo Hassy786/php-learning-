@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- connect the Database using mysqli -->
+    
     
         <?php
-        
-        $conn =mysqli_connect('localhost', 'hassaan' , '5588', 'pizzas');
 
-        // check connection
-        if(!$conn){
-             echo 'Connection error : ' .mysqli_connect_error();
-
-        }
-
+include('config\db_connect.php');
+      
         // how i getting the data from the DB
 
         // query from the pizza database 
@@ -41,15 +35,15 @@
     <h4 class="center grey-text">Pizzas!</h4>
     <div class="container">
         <div class="row">
-        <?php foreach($pizzas as $pizza) {?>
+        <?php foreach($pizzas as $pizza): ?>
             <div class="col s6 md3">
                 <div class="card z-depth-0">
                 <div class="card-content center">
                     <h6><?php  echo htmlspecialchars($pizza['title'])?></h6>
                     <ul>
-                        <?php  foreach(explode(',', $pizza['ingredients']) as $ing) {?>
+                        <?php  foreach(explode(',', $pizza['ingredients']) as $ing):?>
                             <li><?php echo htmlspecialchars($ing) ?></li>
-                            <?php }?>
+                            <?php endforeach;?>
                     </ul>
                 </div>
                 <div class="card-action right-align">
@@ -60,7 +54,7 @@
             </div>
 
     
-    <?php  }   ?>
+    <?php endforeach; ?>  <!-- alternarive way to do the opening nd closing tags { } -->
 
     </div>
     </div>
