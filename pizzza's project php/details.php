@@ -3,18 +3,16 @@
     include('config\db_connect.php');
 	// simple step to make POST request for the delete the pizza records
 	if(isset($_POST['delete'])){
-		$id_to_delete = mysqli_real_escape_string($conn, $_POST,['id_to_delete']);
 
-		//mysqll simple query for deleting the records from db 
-		$sql = "DELETE FROM pizzzzas WHERE id =$id_to_delete"
+		$id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
+
+		$sql = "DELETE FROM pizzzzas WHERE id = $id_to_delete";
 
 		if(mysqli_query($conn, $sql)){
 			header('Location: index.php');
-
-		}else {
-			echo 'query errorr' . mysqli_error($conn);
+		} else {
+			echo 'query error: '. mysqli_error($conn);
 		}
-
 
 	}
 
@@ -41,7 +39,8 @@
 
 
     <?php include('templates/header.php'); ?>
-    <div class="container center">
+	<link rel="stylesheet" href="templates/index.css">
+    <div class="container center grey-text">
 		<?php if($pizza): ?>
 			<h4><?php echo $pizza['title']; ?></h4>
 			<p>Created by <?php echo $pizza['email']; ?></p>
