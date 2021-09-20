@@ -6,11 +6,12 @@
         <?php
 
 include('config\db_connect.php');
+// include('templates\index.css');
       
         // how i getting the data from the DB
 
         // query from the pizza database 
-        $sql = ' SELECT title,	ingredients FROM  pizzzzas order by created_at ';
+        $sql = ' SELECT title,	ingredients,id FROM  pizzzzas order by created_at ';
 
         // make query and getting a result 
         $result = mysqli_query($conn, $sql);
@@ -31,13 +32,14 @@ include('config\db_connect.php');
    
     <!-- shows the header -->
     <?php include('templates/header.php'); ?>
-    
+    <link rel="stylesheet" href="templates/index.css">
     <h4 class="center grey-text">Pizzas!</h4>
     <div class="container">
         <div class="row">
         <?php foreach($pizzas as $pizza): ?>
             <div class="col s6 md3">
                 <div class="card z-depth-0">
+                    <img src="img/pizza.svg" class="pizza">
                 <div class="card-content center">
                     <h6><?php  echo htmlspecialchars($pizza['title'])?></h6>
                     <ul>
@@ -47,7 +49,7 @@ include('config\db_connect.php');
                     </ul>
                 </div>
                 <div class="card-action right-align">
-                    <a href="#" class="brand-text">more info </a>
+                    <a href="details.php?id=<?php echo $pizza['id']?>" class="brand-text">more info </a>
                 </div>
 
                 </div>
